@@ -45,15 +45,33 @@
       <div class="DivsResultado">
         <div class="DivResultado">
           <h3>Sua nota foi:</h3>
-          <h4>8</h4>
+          <h4 id="pontuacao">8</h4>
           <span>de 10 pontos</span>
         </div>
         <div class="DivBtns">
           <h1>Você concluiu o Quiz! Parabéns!</h1>
-          <button>TENTAR NOVAMENTE</button>
-          <button>VOLTAR Á PÁGINA INICIAL</button>
+          <button onclick="tentarNovamente()">TENTAR NOVAMENTE</button>
+          <button onclick="voltarPaginaInicial()">
+            VOLTAR Á PÁGINA INICIAL
+          </button>
         </div>
       </div>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const pontuacao = localStorage.getItem("pontuacao");
+        if (pontuacao) {
+          document.getElementById("pontuacao").textContent = pontuacao;
+        }
+      });
+
+      function tentarNovamente() {
+        window.location.href = "quiz.html";
+      }
+
+      function voltarPaginaInicial() {
+        window.location.href = "/index.html";
+      }
+    </script>
   </body>
 </html>

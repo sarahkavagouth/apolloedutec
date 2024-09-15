@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -62,6 +62,7 @@
 
       .carrousel img:hover {
         transform: scale(1.1);
+        filter: blur(4px);
       }
 
       .carrousel-container .texto {
@@ -134,44 +135,52 @@
         margin-top: -5px;
       }
 
-
-
-
-
       /* Adicione o estilo para os itens do carrossel */
-.carrousel-item {
-  position: relative;
-  display: inline-block;
-}
+      .carrousel-item {
+        position: relative;
+        display: inline-block;
+      }
 
-.carrousel-item .texto {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  padding: 10px;
-  border-radius: 5px;
-  display: none; /* Oculta o texto por padrão */
-  white-space: nowrap;
-}
+      .carrousel-item .texto {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        display: none; /* Oculta o texto por padrão */
+        white-space: nowrap;
+      }
 
-.carrousel-item:hover .texto {
-  display: block; /* Exibe o texto ao passar o mouse sobre a imagem */
-}
+      .carrousel-item:hover .texto {
+        display: none !important; /* Exibe o texto ao passar o mouse sobre a imagem */
+      }
 
+      .carrousel-item .tooltip {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-100%);
+        pointer-events: none;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 5px;
+        border-radius: 5px;
+        white-space: nowrap;
+        transition: 0.4s ease;
+        display: block;
+        width: 500px;
+        padding: 10px 20px;
+        font-size: 18px;
+        white-space: normal !important;
+        opacity: 0;
+        z-index: 10;
+      }
     </style>
-
-
-
-
-
-
-
-
-</head>
-<body>
+  </head>
+  <body>
     <header class="header">
       <a class="logo" href="../index.html">
         <img src="../imagens/logo.png" alt="logo" id="logoImage" />
@@ -179,9 +188,13 @@
       <nav>
         <ul class="center">
           <li><a class="links" href="./conteudo.html">Conteúdos</a></li>
-          <li><a class="links" href="./experiencia-3d.html">Experiência 3D</a></li>
+          <li>
+            <a class="links" href="./experiencia-3d.html">Experiência 3D</a>
+          </li>
           <li><a class="links" href="./sistemasolar.html">Sistema Solar</a></li>
-          <li><a class="links" href="./filmes-series.html">Filmes e Séries</a></li>
+          <li>
+            <a class="links" href="./filmes-series.html">Filmes e Séries</a>
+          </li>
           <li><a class="links" href="./quiz.html">Quiz</a></li>
         </ul>
       </nav>
@@ -196,35 +209,75 @@
       <button class="nav-button nav-prev">&lt;</button>
       <div class="carrousel">
         <div class="carrousel-item">
-          <img src="../imagens/Planetas/mercúrio.png" alt="Mercúrio" title="Mercúrio" />
+          <img
+            src="../imagens/Planetas/mercúrio.png"
+            alt="Mercúrio"
+            title="Mercúrio"
+            data-desc="Mercúrio é o planeta mais próximo do Sol e o menor do sistema solar. Ele possui uma superfície repleta de crateras e variações extremas de temperatura."
+          />
           <div class="texto">Mercúrio</div>
         </div>
         <div class="carrousel-item">
-          <img src="../imagens/Planetas/venus.png" alt="Vênus" title="Vênus" />
+          <img
+            src="../imagens/Planetas/venus.png"
+            alt="Vênus"
+            title="Vênus"
+            data-desc="Vênus é o planeta mais quente do sistema solar, com uma densa atmosfera de dióxido de carbono e nuvens de ácido sulfúrico. É semelhante à Terra em tamanho e composição, mas com condições extremas."
+          />
           <div class="texto">Vênus</div>
         </div>
         <div class="carrousel-item">
-          <img src="../imagens/Planetas/terra.png" alt="Terra" title="Terra" />
+          <img
+            src="../imagens/Planetas/terra.png"
+            alt="Terra"
+            title="Terra"
+            data-desc="A Terra é o único planeta conhecido por abrigar vida. Possui uma atmosfera rica em oxigênio e água líquida na superfície, o que sustenta uma vasta biodiversidade."
+          />
           <div class="texto">Terra</div>
         </div>
         <div class="carrousel-item">
-          <img src="../imagens/Planetas/marte.png" alt="Marte" title="Marte" />
+          <img
+            src="../imagens/Planetas/marte.png"
+            alt="Marte"
+            title="Marte"
+            data-desc="Marte, conhecido como o Planeta Vermelho, possui uma fina atmosfera de dióxido de carbono e evidências de água no passado. É o foco de muitas missões de exploração espacial."
+          />
           <div class="texto">Marte</div>
         </div>
         <div class="carrousel-item">
-          <img src="../imagens/Planetas/jupiter.png" alt="Júpiter" title="Júpiter" />
+          <img
+            src="../imagens/Planetas/jupiter.png"
+            alt="Júpiter"
+            title="Júpiter"
+            data-desc="Júpiter é o maior planeta do sistema solar, com uma atmosfera composta principalmente de hidrogênio e hélio. É conhecido pela Grande Mancha Vermelha, uma gigantesca tempestade."
+          />
           <div class="texto">Júpiter</div>
         </div>
         <div class="carrousel-item">
-          <img src="../imagens/Planetas/saturno.png" alt="Saturno" title="Saturno" />
+          <img
+            src="../imagens/Planetas/saturno.png"
+            alt="Saturno"
+            title="Saturno"
+            data-desc="Saturno é famoso por seus impressionantes anéis, compostos de gelo e rochas. É um gigante gasoso com uma atmosfera densa e muitos satélites naturais."
+          />
           <div class="texto">Saturno</div>
         </div>
         <div class="carrousel-item">
-          <img src="../imagens/Planetas/urano.png" alt="Urano" title="Urano" />
+          <img
+            src="../imagens/Planetas/urano.png"
+            alt="Urano"
+            title="Urano"
+            data-desc="Urano é um gigante gasoso com uma atmosfera rica em metano, dando-lhe uma cor azul esverdeada. É conhecido por seu eixo de rotação inclinado quase perpendicular ao plano de sua órbita."
+          />
           <div class="texto">Urano</div>
         </div>
         <div class="carrousel-item">
-          <img src="../imagens/Planetas/netuno.png" alt="Netuno" title="Netuno" />
+          <img
+            src="../imagens/Planetas/netuno.png"
+            alt="Netuno"
+            title="Netuno"
+            data-desc="Netuno é o planeta mais distante do Sol e é conhecido por seus ventos extremamente rápidos e sua cor azul intensa, causada pela presença de metano na atmosfera."
+          />
           <div class="texto">Netuno</div>
         </div>
       </div>
@@ -276,6 +329,41 @@
 
       updateCurrentPlanet();
     </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const header = document.querySelector(".header");
+
+        function checkHeaderColor() {
+          const scrollPosition = window.scrollY || window.pageYOffset;
+
+          if (scrollPosition >= 100) {
+            header.classList.add("black-bg");
+          } else {
+            header.classList.remove("black-bg");
+          }
+        }
+
+        window.addEventListener("scroll", checkHeaderColor);
+        checkHeaderColor();
+
+        const carrouselItems = document.querySelectorAll(".carrousel-item");
+
+        carrouselItems.forEach((item) => {
+          const img = item.querySelector("img");
+          const tooltip = document.createElement("p");
+          tooltip.className = "tooltip";
+          tooltip.textContent = img.getAttribute("data-desc");
+          item.appendChild(tooltip);
+
+          item.addEventListener("mouseenter", () => {
+            tooltip.style.opacity = "1";
+          });
+
+          item.addEventListener("mouseleave", () => {
+            tooltip.style.opacity = "0";
+          });
+        });
+      });
+    </script>
   </body>
 </html>
-
