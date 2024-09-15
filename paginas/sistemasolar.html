@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,9 +35,16 @@
         scroll-snap-type: x mandatory; /* For smoother snapping */
       }
 
-      header {
-        background-color: transparent !important;
-        border: transparent !important;
+      .carrousel-container {
+        height: 100vh;
+        padding-top: 120px;
+        display: flex;
+        max-width: 720px;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        position: relative; /* Adicionado para posicionar o texto */
+        overflow: hidden;
       }
 
       .carrousel img {
@@ -50,22 +57,28 @@
         transition: transform 0.3s ease;
         cursor: pointer;
         scroll-snap-align: center;
-      }
-
-      .carrousel-container {
-        height: 100vh;
-        padding-top: 120px;
-        display: flex;
-        max-width: 720px;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-        /* position: relative; */
-        overflow: hidden;
+        position: relative; /* Necessário para o texto sobrepor a imagem */
       }
 
       .carrousel img:hover {
         transform: scale(1.1);
+      }
+
+      .carrousel-container .texto {
+        position: absolute;
+        bottom: 10px; /* Ajuste conforme necessário */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        display: none; /* Ocultar por padrão */
+        white-space: nowrap;
+      }
+
+      .carrousel img:hover + .texto {
+        display: block; /* Mostrar o texto ao passar o mouse sobre a imagem */
       }
 
       .carrousel::-webkit-scrollbar {
@@ -96,11 +109,6 @@
         right: 60px;
       }
 
-      body {
-        position: relative;
-        overflow-y: hidden;
-      }
-
       .current-planet {
         margin-top: 20px;
         font-size: 24px;
@@ -110,24 +118,60 @@
       .info-planet {
         font-family: Poppins;
         margin-top: 120px;
-
-        h2 {
-          font-size: 33px;
-          font-weight: 200;
-          line-height: 1.1;
-        }
-
-        h3 {
-          font-size: 70px;
-          font-weight: 900;
-          letter-spacing: 0.009rem;
-          line-height: 1.1;
-          margin-top: -5px;
-        }
       }
+
+      .info-planet h2 {
+        font-size: 33px;
+        font-weight: 200;
+        line-height: 1.1;
+      }
+
+      .info-planet h3 {
+        font-size: 70px;
+        font-weight: 900;
+        letter-spacing: 0.009rem;
+        line-height: 1.1;
+        margin-top: -5px;
+      }
+
+
+
+
+
+      /* Adicione o estilo para os itens do carrossel */
+.carrousel-item {
+  position: relative;
+  display: inline-block;
+}
+
+.carrousel-item .texto {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  display: none; /* Oculta o texto por padrão */
+  white-space: nowrap;
+}
+
+.carrousel-item:hover .texto {
+  display: block; /* Exibe o texto ao passar o mouse sobre a imagem */
+}
+
     </style>
-  </head>
-  <body>
+
+
+
+
+
+
+
+
+</head>
+<body>
     <header class="header">
       <a class="logo" href="../index.html">
         <img src="../imagens/logo.png" alt="logo" id="logoImage" />
@@ -135,21 +179,9 @@
       <nav>
         <ul class="center">
           <li><a class="links" href="./conteudo.html">Conteúdos</a></li>
-          <li>
-            <a class="links" href="./experiencia-3d.html"
-              >Experiência 3D</a
-            >
-          </li>
-          <li>
-            <a class="links" href="./sistemasolar.html"
-              >Sistema Solar</a
-            >
-          </li>
-          <li>
-            <a class="links" href="./filmes-series.html"
-              >Filmes e Séries</a
-            >
-          </li>
+          <li><a class="links" href="./experiencia-3d.html">Experiência 3D</a></li>
+          <li><a class="links" href="./sistemasolar.html">Sistema Solar</a></li>
+          <li><a class="links" href="./filmes-series.html">Filmes e Séries</a></li>
           <li><a class="links" href="./quiz.html">Quiz</a></li>
         </ul>
       </nav>
@@ -163,26 +195,38 @@
     <div class="carrousel-container">
       <button class="nav-button nav-prev">&lt;</button>
       <div class="carrousel">
-        <img
-          src="../imagens/Planetas/mercúrio.png"
-          alt="Mercúrio"
-          title="Mercúrio"
-        />
-        <img src="../imagens/Planetas/venus.png" alt="Vênus" title="Vênus" />
-        <img src="../imagens/Planetas/terra.png" alt="Terra" title="Terra" />
-        <img src="../imagens/Planetas/marte.png" alt="Marte" title="Marte" />
-        <img
-          src="../imagens/Planetas/jupiter.png"
-          alt="Júpiter"
-          title="Júpiter"
-        />
-        <img
-          src="../imagens/Planetas/saturno.png"
-          alt="Saturno"
-          title="Saturno"
-        />
-        <img src="../imagens/Planetas/urano.png" alt="Urano" title="Urano" />
-        <img src="../imagens/Planetas/netuno.png" alt="Netuno" title="Netuno" />
+        <div class="carrousel-item">
+          <img src="../imagens/Planetas/mercúrio.png" alt="Mercúrio" title="Mercúrio" />
+          <div class="texto">Mercúrio</div>
+        </div>
+        <div class="carrousel-item">
+          <img src="../imagens/Planetas/venus.png" alt="Vênus" title="Vênus" />
+          <div class="texto">Vênus</div>
+        </div>
+        <div class="carrousel-item">
+          <img src="../imagens/Planetas/terra.png" alt="Terra" title="Terra" />
+          <div class="texto">Terra</div>
+        </div>
+        <div class="carrousel-item">
+          <img src="../imagens/Planetas/marte.png" alt="Marte" title="Marte" />
+          <div class="texto">Marte</div>
+        </div>
+        <div class="carrousel-item">
+          <img src="../imagens/Planetas/jupiter.png" alt="Júpiter" title="Júpiter" />
+          <div class="texto">Júpiter</div>
+        </div>
+        <div class="carrousel-item">
+          <img src="../imagens/Planetas/saturno.png" alt="Saturno" title="Saturno" />
+          <div class="texto">Saturno</div>
+        </div>
+        <div class="carrousel-item">
+          <img src="../imagens/Planetas/urano.png" alt="Urano" title="Urano" />
+          <div class="texto">Urano</div>
+        </div>
+        <div class="carrousel-item">
+          <img src="../imagens/Planetas/netuno.png" alt="Netuno" title="Netuno" />
+          <div class="texto">Netuno</div>
+        </div>
       </div>
       <button class="nav-button nav-next">&gt;</button>
     </div>
@@ -234,3 +278,4 @@
     </script>
   </body>
 </html>
+

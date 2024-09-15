@@ -49,6 +49,18 @@ header nav {
   margin: 0 !important;
 }
 
+.change-color {
+  transition: background-color 0.9s ease-in-out;
+}
+
+
+.black-bg {
+  background-color: rgb(05, 05, 05);
+  height: 100px;
+  border-bottom: 1px solid rgb(107, 104, 104);
+  transition: all 0.4s ease !important;
+}
+
 header {
   justify-content: space-between !important;
   width: 100% !important;
@@ -96,6 +108,11 @@ nav .links:hover {
 header img {
   height: 90px;
   cursor: pointer;
+}
+
+.tour {
+  margin-top: 200px;
+  align-content: flex-start;
 }
 
 header {
