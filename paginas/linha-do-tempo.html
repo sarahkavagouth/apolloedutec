@@ -22,23 +22,17 @@
       </a>
       <nav>
         <ul class="center">
-          <li><a class="links" href="./paginas/conteudo.html">Conteúdos</a></li>
+          <li><a class="links" href="./conteudo.html">Conteúdos</a></li>
           <li>
-            <a class="links" href="./paginas/experiencia-3d.html"
-              >Experiência 3D</a
-            >
+            <a class="links" href="./experiencia-3d.html">Experiência 3D</a>
           </li>
           <li>
-            <a class="links" href="./paginas/experiencia-3d.html"
-              >Sistema Solar</a
-            >
+            <a class="links" href="./sistemasolar.html">Sistema Solar</a>
           </li>
           <li>
-            <a class="links" href="./paginas/filmes-series.html"
-              >Filmes e Séries</a
-            >
+            <a class="links" href="./filmes-series.html">Filmes e Séries</a>
           </li>
-          <li><a class="links" href="./paginas/quiz.html">Quiz</a></li>
+          <li><a class="links" href="./quiz.html">Quiz</a></li>
         </ul>
       </nav>
     </header>
@@ -203,4 +197,22 @@
       </div>
     </div>
   </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const header = document.querySelector(".header");
+
+      function checkHeaderColor() {
+        const scrollPosition = window.scrollY || window.pageYOffset;
+
+        if (scrollPosition >= 100) {
+          header.classList.add("black-bg");
+        } else {
+          header.classList.remove("black-bg");
+        }
+      }
+
+      window.addEventListener("scroll", checkHeaderColor);
+      checkHeaderColor();
+    });
+  </script>
 </html>

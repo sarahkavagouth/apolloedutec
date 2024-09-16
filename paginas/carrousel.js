@@ -37,11 +37,19 @@ const modal = document.getElementById("myModal");
 const modalImage = document.getElementById("modalImage");
 const modalTriggers = document.querySelectorAll(".modal-trigger");
 
+const modalTitle = document.getElementById("modalTitle");
+const modalDescription = document.getElementById("modalDescription");
+const modalYear = document.getElementById("modalYear");
+const modalDuration = document.getElementById("modalDuration");
+
 modalTriggers.forEach((trigger) => {
   trigger.addEventListener("click", function () {
-    console.log("a");
     modal.style.display = "flex";
     modalImage.src = this.src;
+    modalTitle.textContent = this.getAttribute("data-title");
+    modalDescription.textContent = this.getAttribute("data-description");
+    modalYear.textContent = this.getAttribute("data-year");
+    modalDuration.textContent = this.getAttribute("data-duration");
   });
 });
 
@@ -56,5 +64,18 @@ window.onclick = function (event) {
   }
 };
 
+const header = document.querySelector(".header");
 
+function checkHeaderColor() {
+  const scrollPosition = window.scrollY || window.pageYOffset;
+  console.log("1");
 
+  if (scrollPosition >= 100) {
+    header.classList.add("black-bg");
+  } else {
+    header.classList.remove("black-bg");
+  }
+}
+
+window.addEventListener("scroll", checkHeaderColor);
+checkHeaderColor();
